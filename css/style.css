@@ -1,0 +1,57 @@
+main {
+    padding-left: 32px;
+    padding-right:32px;
+    padding-top: 64px;
+    padding-bottom :64px;
+
+}
+
+.main-title {
+    text-align:center;
+    background-color: rgb(72, 232, 216);
+
+}
+
+.main-section {
+    background-color: aquamarine;
+    border-radius: 4px;
+    padding: 16px;
+    
+}
+.section-celcius {
+    padding-top: 16px;
+
+}
+
+.section-fahrenheit {
+    padding-top: 16px;
+
+}
+
+.section-result {
+    padding-top: 16px;
+
+}
+
+.section-explanation {
+    padding-top: 16px;
+}
+
+textarea {
+    border: 2px solid orange;
+    border-radius: 4px;
+    color: coral;
+    font-size:14px ;
+    height: 32px;
+    resize:none;
+    width: 75%; 
+}
+
+.formula-s{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.formula-s>sub {
+    font-style: normal;   
+}
