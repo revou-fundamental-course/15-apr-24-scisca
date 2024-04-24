@@ -41,7 +41,7 @@ textarea {
     border: 2px solid orange;
     border-radius: 4px;
     color: coral;
-    font-size:14px ;
+    font-size:14px ; 
     height: 32px;
     resize:none;
     width: 75%; 
@@ -54,4 +54,29 @@ textarea {
 
 .formula-s>sub {
     font-style: normal;   
+}
+
+.container-button {
+    padding-top:8px ;
+}
+button {
+    border-radius: 4px;
+    font-family: arial;
+    font-size: 14px;
+    padding: 8px;
+}
+
+#button_convert {
+    background-color: forestgreen;
+    color: white;  
+    margin-right: 8px;  
+}
+#button_reset {
+    background-color: royalblue;
+    color: white;
+    margin-right: 8px; 
+}
+#button_reverse {
+    background-color: yellowgreen;
+    color: white;
 }
