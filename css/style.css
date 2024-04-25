@@ -1,50 +1,56 @@
 main {
-    padding-left: 32px;
-    padding-right:32px;
-    padding-top: 64px;
-    padding-bottom :64px;
+    padding-left: 23px;
+    padding-right:23px;
+    padding-top: 3px;
+    padding-bottom :32px;
 
 }
 
 .main-title {
     text-align:center;
-    background-color: rgb(72, 232, 216);
+    background-color: rgb(252, 174, 6);
 
 }
 
 .main-section {
-    background-color: aquamarine;
+    background-color: rgba(226, 204, 107, 0.242);
     border-radius: 4px;
     padding: 16px;
     
 }
 .section-celcius {
     padding-top: 16px;
+    text-align:center;
 
 }
 
 .section-fahrenheit {
     padding-top: 16px;
-
+    text-align:center;
 }
 
 .section-result {
     padding-top: 16px;
-
+    text-align:center;
 }
 
 .section-explanation {
     padding-top: 16px;
+    text-align:center;
 }
 
 textarea {
     border: 2px solid orange;
     border-radius: 4px;
     color: coral;
-    font-size:14px ; 
-    height: 32px;
-    resize:none;
+    display: block;
+    font-size:17px ; 
+    height: 29px;
+    margin: 0 auto;
+    resize: none;
     width: 75%; 
+    text-align: center;
+    font-style: oblique;
 }
 
 .formula-s{
@@ -58,25 +64,76 @@ textarea {
 
 .container-button {
     padding-top:8px ;
+    text-align: center;
+    
 }
 button {
     border-radius: 4px;
     font-family: arial;
     font-size: 14px;
     padding: 8px;
+    
 }
 
 #button_convert {
-    background-color: forestgreen;
+    background-color: rgb(247, 93, 216);
     color: white;  
     margin-right: 8px;  
 }
 #button_reset {
-    background-color: royalblue;
+    background-color: rgb(227, 188, 33);
     color: white;
     margin-right: 8px; 
 }
 #button_reverse {
     background-color: yellowgreen;
     color: white;
+}
+
+/* Style untuk layar laptop dan desktop */
+@media screen and (min-width: 768px) {
+    /* Atur lebar konten utama */
+    main {
+        width: 60%;
+        margin: 0 auto;
+    }
+    /* Atur lebar input dan hasil */
+    textarea {
+        width: 100%;
+    }
+    .section-celcius,
+    .section-fahrenheit,
+    .section-result {
+        width: 100%;
+    }
+    /* Atur tata letak tombol */
+    .container-button {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Style untuk layar ponsel */
+@media screen and (max-width: 767px) {
+    /* Atur lebar konten utama */
+    main {
+        width: 90%;
+        margin: 0 auto;
+    }
+    /* Atur lebar input dan hasil */
+    textarea {
+        width: calc(100% - 20px);
+    }
+    .section-celcius,
+    .section-fahrenheit,
+    .section-result {
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+    /* Atur tata letak tombol */
+    .container-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

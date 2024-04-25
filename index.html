@@ -9,12 +9,12 @@
 <body>
     <main>
     <header class="main-title">
-        <h1>Temperature Converter by Franscisca</h1>
+        <h1>Temperature Converter </h1>
+        <h2>By : Franscisca</h2>
     </header>
 
         <section class="main-section">
             <section >
-                <p>Masukan Suhu Derajat Celcius (&deg;Celcius)</p>
             </section>
 
             <section class="section-celcius">
@@ -23,8 +23,8 @@
                 </header>
 
                     <article>
-                        <textarea rows="1"></textarea>
-
+                        <textarea rows="1" id="celciusInput" placeholder="Masukkan suhu ..... "></textarea>
+                        <input type="hidden" id="originalCelcius">
                         <div class="container-button">
                             <button id="button_convert">Convert</button>
                             <button id="button_reset">Reset</button>
@@ -39,31 +39,92 @@
                     </header>
     
                     <article>
-                        <textarea rows="1"></textarea> 
+                        <textarea rows="1" id="fahrenheitResult" readonly></textarea> 
                     </article>
                 </section>
 
                 <section class="section-result">
                 <header>
-                    <h3>Cara Kalkulasi</h3>
+                    <h3>Cara Konversi dari (&deg;C) ke (&deg;F)</h3>
                </header>
         
                     <article>
-                        <textarea rows="1"></textarea> 
+                        <textarea rows="1" id="calculationResult" readonly></textarea> 
                     </article>
                 </section>
 
                 <section class="section-explanation">
                 <header>
-                    <h3>Cara Konversi dari (&deg;C) ke (&deg;F)</h3>
+                    <h3>
                 </header>
-                <hr>
                 <article>
-                    <h1 class="formula-s">S<sub>(&deg;F)</sub></h1>
                 </article>
             </section>
         </section>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const celciusInput = document.getElementById("celciusInput");
+    const originalCelcius = document.getElementById("originalCelcius");
+    const fahrenheitResult = document.getElementById("fahrenheitResult");
+    const calculationResult = document.getElementById("calculationResult");
+    const buttonConvert = document.getElementById("button_convert");
+    const buttonReset = document.getElementById("button_reset");
+    const buttonReverse = document.getElementById("button_reverse");
+
+    // Fungsi konversi suhu dari Celcius ke Fahrenheit
+    function convertToFarhenheit(celcius) {
+        return (celcius * 9/5) + 32;
+    }
+
+    // Fungsi konversi suhu dari Fahrenheit ke Celsius
+    function convertToCelsius(fahrenheit) {
+        return (fahrenheit - 32) * 5/9;
+    }
+
+    // Fungsi menghitung cara kalkulasi konversi suhu
+    function calculateConversion(celcius) {
+        const fahrenheit = convertToFarhenheit(celcius);
+        return `(${celcius} * 9/5) + 32 = ${fahrenheit}`;
+    }
+
+    // Ketika tombol Convert ditekan
+    buttonConvert.addEventListener("click", function() {
+        const celciusValue = parseFloat(celciusInput.value);
+        if (!isNaN(celciusValue)) {
+            const fahrenheitValue = convertToFarhenheit(celciusValue);
+            fahrenheitResult.value = fahrenheitValue;
+            calculationResult.value = calculateConversion(celciusValue);
+            originalCelcius.value = celciusValue; // Simpan nilai celcius asli
+        } else {
+            alert("Masukkan angka yang valid untuk suhu dalam Celcius.");
+        }
+    });
+
+    // Ketika tombol Reverse ditekan
+    buttonReverse.addEventListener("click", function() {
+        const fahrenheitValue = parseFloat(fahrenheitResult.value);
+        if (!isNaN(fahrenheitValue)) {
+            const celsiusValue = convertToCelsius(fahrenheitValue);
+            celciusInput.value = celsiusValue;
+            calculationResult.value = `(${fahrenheitValue} - 32) * 5/9 = ${celsiusValue}`;
+            originalCelcius.value = celsiusValue;
+        } else {
+            alert("Tidak ada nilai suhu yang disimpan untuk dibalikkan.");
+        }
+    });
+
+    // Ketika tombol Reset ditekan
+    buttonReset.addEventListener("click", function() {
+        celciusInput.value = "";
+        fahrenheitResult.value = "";
+        calculationResult.value = "";
+        originalCelcius.value = "";
+    });
+});
+
+    </script>
 </body>
 
 </html>
